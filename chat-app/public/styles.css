@@ -1,0 +1,57 @@
+.threadsContainer{
+    width: 100%;
+    height: calc(100vh - 103px);
+    overflow-y: auto;
+}
+
+.threadsContainer::-webkit-scrollbar{
+    width: 6px;
+}
+
+.threadsContainer::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+.threadsContainer::-webkit-scrollbar-thumb{
+    background: #ababab;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box; 
+    
+}
+.threadsContainer::-webkit-scrollbar-thumb:hover {
+    border: 0;
+  }
+
+  .singleThread:hover{
+    background-color: #72727233;
+    
+  }
+
+.singleThread{
+    width: calc(90% + 6px);
+    height: 60px;
+    margin-left: 5%;
+    margin-top: 5px;
+    /* background: #72727233; */
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px 17px;
+    position: relative;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.messageInput{
+    height: 30px;
+    flex-grow: 1;
+    border-radius: 15px;
+    resize: none;
+    padding: 4px 12px;
+    font-size: 14px;
+    background-color: #72727233;
+    outline: none;
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease-in-out;
+    /* vertical-align: middle; */
+}
