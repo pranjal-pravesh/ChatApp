@@ -1,24 +1,12 @@
-import { Avatar, Box, Button, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Stack, Typography } from "@mui/material";
+import { dummyUsers } from "./dummyUsers";
 
 
 export function Threads(prop){
 
     var theme = prop.theme;
-    const changeTheme = prop.changeTheme;
 
-    function CustomBadge(prop){
-        return <span style={{borderRadius:'8px', 
-                            backgroundColor:'#4cb5f9', 
-                            fontSize:'12px', 
-                            minWidth:'16px',
-                            height:'16px',
-                            display:'flex',
-                            padding:'0px 2px',
-                            justifyContent:'center',
-                            color:'white'}}>
-            1
-        </span>
-    }
+
 
     function Searchbar(){
         return(
@@ -49,7 +37,34 @@ export function Threads(prop){
         )
     }
 
-    function Thread(){
+    function Thread(prop){
+        function CustomBadge(){
+            var unreadMessages = parseInt(prop.unreadMessages)
+            return (unreadMessages!==0?<span style={{borderRadius:'8px', 
+                                backgroundColor:'#4cb5f9', 
+                                fontSize:'12px', 
+                                minWidth:'16px',
+                                height:'16px',
+                                display:'flex',
+                                padding:'0px 2px',
+                                justifyContent:'center',
+                                paddingRight:`${unreadMessages>9?'4px': null}`,
+                                paddingLeft:`${unreadMessages>9?'4px': null}`,
+                                color:'white'}}>
+                {unreadMessages}
+            </span>
+            :
+            null)
+        }
+        function displayLastMessage(message){
+
+            if (message.length < 26){
+                return message
+            }else{
+                return message.slice(0, 24) + '...'
+            }
+
+        }
         return( 
             
             <Stack sx={{width:'calc(90% + 6px)',
@@ -66,17 +81,17 @@ export function Threads(prop){
                         }}
                         direction='row'>
 
-                <Avatar src='https://media.licdn.com/dms/image/D4E03AQHBqWeBZgzLOQ/profile-displayphoto-shrink_800_800/0/1682102966918?e=2147483647&v=beta&t=3h218jhABSX_wWq-yVt8-yCUjO12cSvq-srN_tkYPg8'/>
+                <Avatar src={prop.profilePic}/>
                 
                 <Stack sx={{height:'40px', fontSize:'15px', width:'75%', marginLeft:'5%', fontFamily:'Roboto'}}>
 
                     <Stack sx={{height:'50%', width:'100%', marginBottom:'2px', justifyContent:'space-between'}} direction='row'>
-                        <p style={{color:theme==='light'?'black':'white'}}>Pranjal Pravesh</p>
-                        <p style={{color:'grey', fontSize:'10px', display:'flex', alignItems:'center'}}>16:54</p>                        
+                        <p style={{color:theme==='light'?'black':'white'}}>{prop.name}</p>
+                        <p style={{color:'grey', fontSize:'10px', display:'flex', alignItems:'center'}}>{prop.lastMessageTime}</p>                        
                     </Stack>
 
                     <Stack sx={{height:'50%', width:'100%', fontSize:'12px', color:'grey', justifyContent:'space-between'}} direction='row'>
-                        <p>Hey there👋</p>
+                        <p>{displayLastMessage(prop.lastMessage)}</p>
                         <CustomBadge/>
                     </Stack>
                 </Stack>
@@ -94,11 +109,16 @@ export function Threads(prop){
 
         
         <div className="threadsContainer">
-            <Thread/>
-            <Thread/>
-            <Thread/><Thread/><Thread/><Thread/><Thread/><Thread/><Thread/><Thread/>
-            <Thread/><Thread/><Thread/><Thread/><Thread/><Thread/><Thread/><Thread/><Thread/><Thread/><Thread/><Thread/>
-            <Button onClick={()=>{changeTheme('dark')}}>click</Button>
+            {dummyUsers.map((item)=>{
+                return <Thread
+                name = {item.name}
+                lastMessage = {item.lastMessage}
+                lastMessageTime={item.lastMessageTime}
+                unreadMessages={item.unreadMessages}
+                profilePic={item.profilePic}
+                key={item.id}
+            />
+            })}
         </div>
         
 

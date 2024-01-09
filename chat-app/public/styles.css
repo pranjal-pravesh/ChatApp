@@ -55,3 +55,22 @@
     transition: border-color 0.2s ease-in-out;
     /* vertical-align: middle; */
 }
+
+.messageInput::-webkit-scrollbar{
+    width: 6px;
+}
+
+.messageInput::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+.messageInput::-webkit-scrollbar-thumb{
+    background: #ababab;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box; 
+}
+
+.messageInput::-webkit-scrollbar-thumb:hover {
+    border: 0;
+}

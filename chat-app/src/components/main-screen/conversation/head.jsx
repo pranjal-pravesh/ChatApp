@@ -3,7 +3,7 @@ import { Avatar, Stack } from "@mui/material";
 
 export function Head(prop){
     return (
-        <Stack sx={{width:'100%', height:'50px', background:prop.theme==='dark'?'#232323':'white', 
+        <Stack sx={{width:'100%', height:'55px', background:prop.theme==='dark'?'#232323':'white', 
                     color:'white', alignItems:'center', padding:'0 20px'}} direction='row'>
             <Stack direction='row' sx={{alignItems:'center'}}>
 

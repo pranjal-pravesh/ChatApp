@@ -5,7 +5,7 @@ import { ChatArea } from "./chat-area";
 
 export function ConversationScreen(prop){
     return (
-        <Stack sx={{width:'100%', flexShrink:'1'}}>
+        <Stack sx={{flexGrow:'1'}}>
             <Head theme={prop.theme}/>
             <ChatArea theme={prop.theme}/>
             <InputArea theme={prop.theme}/>

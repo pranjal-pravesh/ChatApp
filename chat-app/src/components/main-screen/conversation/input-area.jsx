@@ -3,6 +3,7 @@ import {Paperclip, PaperPlaneRight} from "@phosphor-icons/react";
 
 
 export function InputArea(prop){
+    
     return (
     <Stack sx={{height:'50px', background:prop.theme==='dark'?'#232323':'white', alignItems:'center'}} direction='row'>
         
