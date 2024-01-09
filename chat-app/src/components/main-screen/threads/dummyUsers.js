@@ -69,12 +69,12 @@ export const dummyUsers = [
         name: `Ava Robinson`,
         profilePic: `https://picsum.photos/id/305/200`,
         lastMessage: `See you soon!`,
-        unreadMessages: `14`,
+        unreadMessages: `11`,
         lastMessageTime: `12:30`
       },
 
       {
-        id: 7,
+        id: 641647,
         name: `Liam Jackson`,
         profilePic: `https://picsum.photos/id/206/200`,
         lastMessage: `Hello!`,

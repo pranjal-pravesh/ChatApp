@@ -1,10 +1,13 @@
 import { Avatar, Box, Stack, Typography } from "@mui/material";
 import { dummyUsers } from "./dummyUsers";
+import { useState } from "react";
 
 
 export function Threads(prop){
 
     var theme = prop.theme;
+
+    const [selectedThread, setSelectedThread] = useState('')
 
 
 
@@ -38,6 +41,20 @@ export function Threads(prop){
     }
 
     function Thread(prop){
+
+        //for handling hover
+        const [isHovered, setIsHovered] = useState(false);
+
+        const handleMouseEnter = () => {
+          setIsHovered(true);
+        };
+      
+        const handleMouseLeave = () => {
+          setIsHovered(false);
+        };
+        
+
+        //Custom badge for displaying number of unseen messages
         function CustomBadge(){
             var unreadMessages = parseInt(prop.unreadMessages)
             return (unreadMessages!==0?<span style={{borderRadius:'8px', 
@@ -46,7 +63,6 @@ export function Threads(prop){
                                 minWidth:'16px',
                                 height:'16px',
                                 display:'flex',
-                                padding:'0px 2px',
                                 justifyContent:'center',
                                 paddingRight:`${unreadMessages>9?'4px': null}`,
                                 paddingLeft:`${unreadMessages>9?'4px': null}`,
@@ -56,6 +72,8 @@ export function Threads(prop){
             :
             null)
         }
+
+        //For displaying last message preview
         function displayLastMessage(message){
 
             if (message.length < 26){
@@ -65,21 +83,43 @@ export function Threads(prop){
             }
 
         }
+
+        //For handling bgcolor when hovered or selected
+        function threadBGcolor(){
+
+            if (selectedThread===prop.id){
+                return '#6b686859'
+            }
+            if (selectedThread!==prop.id && isHovered){
+                return '#72727221'
+            }
+            else{
+                return 'transparent'
+            }
+        }
+        
+
+
         return( 
             
             <Stack sx={{width:'calc(90% + 6px)',
                         height:'60px', 
                         marginLeft:'5%', 
                         marginTop: '5px', 
-                        // background:'#72727233',
+                        // background: isHovered?'#72727233':null,
+                        background: threadBGcolor(),
                         alignItems:'center',
                         borderRadius:'10px',
                         padding:'5px 17px',
                         position:'relative',
                         boxSizing:'border-box',
-                        flexShrink:'0',           
+                        flexShrink:'0',
+                        userSelect:'none'           
                         }}
-                        direction='row'>
+                        direction='row'
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        onClick={()=>setSelectedThread(prop.id)}>
 
                 <Avatar src={prop.profilePic}/>
                 
@@ -111,12 +151,13 @@ export function Threads(prop){
         <div className="threadsContainer">
             {dummyUsers.map((item)=>{
                 return <Thread
-                name = {item.name}
-                lastMessage = {item.lastMessage}
-                lastMessageTime={item.lastMessageTime}
-                unreadMessages={item.unreadMessages}
-                profilePic={item.profilePic}
-                key={item.id}
+                    name = {item.name}
+                    lastMessage = {item.lastMessage}
+                    lastMessageTime={item.lastMessageTime}
+                    unreadMessages={item.unreadMessages}
+                    profilePic={item.profilePic}
+                    id={item.id}
+                    key={item.id}
             />
             })}
         </div>
