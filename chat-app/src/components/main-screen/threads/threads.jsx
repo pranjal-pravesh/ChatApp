@@ -1,11 +1,12 @@
 import { Avatar, Box, Stack, Typography } from "@mui/material";
 import { dummyUsers } from "./dummyUsers";
 import { useState } from "react";
+import {useSelector} from 'react-redux';
 
 
-export function Threads(prop){
+export function Threads(){
 
-    var theme = prop.theme;
+    var theme = useSelector(state => state.theme);
 
     const [selectedThread, setSelectedThread] = useState('')
 
@@ -123,7 +124,7 @@ export function Threads(prop){
 
                 <Avatar src={prop.profilePic}/>
                 
-                <Stack sx={{height:'40px', fontSize:'15px', width:'75%', marginLeft:'5%', fontFamily:'Roboto'}}>
+                <Stack sx={{height:'40px', fontSize:'15px', width:'75%', marginLeft:'5%', fontFamily:'Roboto', alignItems:'center'}}>
 
                     <Stack sx={{height:'50%', width:'100%', marginBottom:'2px', justifyContent:'space-between'}} direction='row'>
                         <p style={{color:theme==='light'?'black':'white'}}>{prop.name}</p>
@@ -140,7 +141,9 @@ export function Threads(prop){
     }
 
     return (
-    <Stack sx={{height:'100svh', width:'300px',flexShrink:'0', backgroundColor:`${theme==='dark'?'#282828':'rgb(251, 251, 251)'}`}}>
+    <Stack sx={{height:'100svh', width:'300px',flexShrink:'0', 
+                backgroundColor:theme==='dark'?'#282828':'rgb(251, 251, 251)',
+                transition:'background-color 500ms'}}>
         <Box>
             <Typography variant="h5" sx={{marginLeft:'10%', marginTop:'20px', color:`${theme==='dark'?'white':'black'}`}}>Chats</Typography>
             <Searchbar/>

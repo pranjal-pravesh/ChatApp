@@ -40,6 +40,7 @@ export function ChatArea(prop){
     return(
     <Stack sx={{height:'calc(100svh - 105px)', background:prop.theme==='dark'?'#2f2f2f':'rgb(238, 238, 238)',
                 padding:' 15px 30px', boxSizing:'border-box', overflow:'auto', flexDirection:'column-reverse',
+                transition:'background 500ms',
                 '&::-webkit-scrollbar': {
                     width: 6,
                   },

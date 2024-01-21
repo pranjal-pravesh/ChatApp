@@ -1,33 +1,19 @@
 import { Stack } from "@mui/material";
 import { Sidebar } from "./sidebar/sidebar";
 import { Threads } from "./threads/threads";
-import { useState } from 'react';
+import {useSelector} from 'react-redux';
 import { ConversationScreen } from "./conversation/conversation-screen";
 
 export function Main(){
 
-    var [theme , setTheme] = useState('light')
-
-    const themeColorBackground = theme==='light'?'rgb(238, 238, 238)':'black';
-    const themeColorText = theme==='light'?'black':'white';
-
-    function changeTheme(){
-        if (theme==='light'){
-        setTheme('dark')
-        }else{
-            setTheme('light')
-        }
-    }
+    var theme = useSelector(state => state.theme);
+  
 
     return (
     <Stack direction="row">
-        <Sidebar themeColorBackground={themeColorBackground} 
-                themeColorText={themeColorText} 
-                changeTheme={changeTheme}
-                theme={theme}/>
+        <Sidebar/>
 
-        <Threads theme={theme}
-                 changeTheme={changeTheme}/>
+        <Threads />
         <ConversationScreen theme={theme} />
     </Stack>
 

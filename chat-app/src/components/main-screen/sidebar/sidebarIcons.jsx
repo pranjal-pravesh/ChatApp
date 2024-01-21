@@ -1,20 +1,27 @@
 import {Phone, ChatCircleText, Users} from "@phosphor-icons/react";
 
+
 export const sidebarIcons =[
 
     {
         index:0,
-        icon: <ChatCircleText size={24} weight="light" />    
+        name:'chats',
+        icon: <ChatCircleText size={24} weight="light" />,
+        link: '/chats'    
     },
 
     {
         index:1,
-        icon: <Phone size={24} weight="light" />
+        name:'calls',
+        icon: <Phone size={24} weight="light" />,
+        link:'/calls'
     },
 
     {
         index:2,
-        icon:<Users size={24} weight="light" />
+        name:'friends',
+        icon:<Users size={24} weight="light" />,
+        link:'/friends'
     }
 
 ]

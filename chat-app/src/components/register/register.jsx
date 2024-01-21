@@ -1,6 +1,7 @@
 import register from './register.module.css'
 import Input from './input-field'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 export default function Register(){
@@ -28,10 +29,10 @@ export default function Register(){
 
 
             </div>
-
+            <Link to='/chat' replace='true'>
             <button className={register.submitButton}
 
-            >Log in</button>
+            >Log in</button></Link>
             
 
         </div>
