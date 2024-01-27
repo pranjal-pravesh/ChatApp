@@ -3,6 +3,7 @@ import { Sidebar } from "./sidebar/sidebar";
 import { Threads } from "./threads/threads";
 import {useSelector} from 'react-redux';
 import { ConversationScreen } from "./conversation/conversation-screen";
+import {  Outlet } from "react-router-dom"
 
 export function Main(){
 
@@ -12,9 +13,11 @@ export function Main(){
     return (
     <Stack direction="row">
         <Sidebar/>
-
-        <Threads />
-        <ConversationScreen theme={theme} />
+        {/* <Threads/> 
+        <ConversationScreen theme={theme} /> */}
+        <Outlet />
+        {/* <CallThreads />
+        <CallDetails theme={theme}/> */}
     </Stack>
 
     )

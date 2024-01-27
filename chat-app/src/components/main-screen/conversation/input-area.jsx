@@ -1,11 +1,11 @@
-import {IconButton, Stack } from "@mui/material";
+import {IconButton, Stack, TextField } from "@mui/material";
 import {Paperclip, PaperPlaneRight} from "@phosphor-icons/react";
 
 
 export function InputArea(prop){
     
     return (
-    <Stack sx={{height:'50px', background:prop.theme==='dark'?'#232323':'white', alignItems:'center', transition:'background 500ms'}} direction='row'>
+    <Stack sx={{height:'60px', background:prop.theme==='dark'?'#232323':'white', alignItems:'center', transition:'background 200ms'}} direction='row'>
         
         <IconButton sx={{color:prop.theme==='dark'?'white':'black', margin:'0  15px'}}><Paperclip size={24} weight="light" /></IconButton>
 
@@ -23,6 +23,23 @@ export function InputArea(prop){
                 e.target.style.borderColor = '#72727233'; // Change border color on blur
             }}
             />
+
+        {/* <TextField
+          placeholder="Type a message"
+          id="messageInput"
+          multiline
+          maxRows={4}
+          sx={{
+            color: prop.theme === 'dark' ? 'white' : 'black',
+            borderColor: '#72727233', // Initial border color
+             }}
+        onFocus={(e) => {
+            e.target.style.borderColor = '#4cb5f9'; // Change border color on focus
+        }}
+        onBlur={(e) => {
+            e.target.style.borderColor = '#72727233'; // Change border color on blur
+        }}
+        /> */}
                 
         
         
