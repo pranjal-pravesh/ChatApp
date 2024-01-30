@@ -1,13 +1,10 @@
 import { Main } from "./main-screen/main"
 import { Navigate, Route, Routes } from "react-router-dom"
 import Register from "./register/register"
-import ChatTab from "./main-screen/conversation/chatTab"
+import ChatTab from "./main-screen/chat-tab/chatTab"
 import CallTab from "./main-screen/calls-tab/callTab"
 
 export default function App() {
-  function SampleCall(){
-    return <p>Hello</p>
-  }
   return (
     <>
     <Routes>

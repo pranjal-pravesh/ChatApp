@@ -1,32 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap');
+
 .threadsContainer{
     width: 100%;
     height: calc(100vh - 103px);
     overflow-y: auto;
 }
 
-.threadsContainer::-webkit-scrollbar{
-    width: 6px;
-}
-
-.threadsContainer::-webkit-scrollbar-track{
-    background-color: transparent;
-}
-
-.threadsContainer::-webkit-scrollbar-thumb{
-    background: #ababab;
-    border-radius: 10px;
-    border: 2px solid transparent;
-    background-clip: padding-box; 
-    
-}
-.threadsContainer::-webkit-scrollbar-thumb:hover {
-    border: 0;
-  }
-
-  .singleThread:hover{
+.singleThread:hover{
     background-color: #72727233;
     
-  }
+}
 
 .singleThread{
     width: calc(90% + 6px);
@@ -56,21 +39,24 @@
     /* vertical-align: middle; */
 }
 
-.messageInput::-webkit-scrollbar{
+
+
+.customScrollbar::-webkit-scrollbar{
     width: 6px;
 }
 
-.messageInput::-webkit-scrollbar-track{
+.customScrollbar::-webkit-scrollbar-track{
     background-color: transparent;
 }
 
-.messageInput::-webkit-scrollbar-thumb{
+.customScrollbar::-webkit-scrollbar-thumb{
     background: #ababab;
     border-radius: 10px;
     border: 2px solid transparent;
     background-clip: padding-box; 
+    
 }
 
-.messageInput::-webkit-scrollbar-thumb:hover {
+.customScrollbar::-webkit-scrollbar-thumb:hover {
     border: 0;
 }

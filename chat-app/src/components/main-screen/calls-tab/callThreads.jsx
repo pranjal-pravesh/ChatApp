@@ -136,7 +136,7 @@ export function CallThreads(){
 
 
         
-        <div className="threadsContainer">
+        <div className="threadsContainer customScrollbar">
             {calls.map((item)=>{
                 return <Thread
                     name = {item.name}

@@ -1,4 +1,4 @@
-import {IconButton, Stack, TextField } from "@mui/material";
+import {IconButton, Stack } from "@mui/material";
 import {Paperclip, PaperPlaneRight} from "@phosphor-icons/react";
 
 
@@ -11,7 +11,7 @@ export function InputArea(prop){
 
         <textarea
             placeholder="Type a message"
-            className="messageInput"
+            className="messageInput customScrollbar"
             style={{
                 color: prop.theme === 'dark' ? 'white' : 'black',
                 borderColor: '#72727233', // Initial border color

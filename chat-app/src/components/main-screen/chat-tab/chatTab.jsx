@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
-import { Threads } from "../threads/threads";
+import { Threads } from "./threads";
 import { ConversationScreen } from "./conversation-screen";
+import ContactDetail from "./contact-detail";
 
 
 export default function ChatTab(){
@@ -9,6 +10,7 @@ export default function ChatTab(){
         <>
         <Threads/> 
         <ConversationScreen theme={theme} />
+        <ContactDetail/>
         </>
         
     )

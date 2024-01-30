@@ -151,7 +151,7 @@ export function Threads(){
 
 
         
-        <div className="threadsContainer">
+        <div className="threadsContainer customScrollbar">
             {dummyUsers.map((item)=>{
                 return <Thread
                     name = {item.name}
