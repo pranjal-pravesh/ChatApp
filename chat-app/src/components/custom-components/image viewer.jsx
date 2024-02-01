@@ -25,7 +25,7 @@ export default function ImageViewer(props) {
 
         if (delta > 0) {
              // Scrolling down - zoom out
-          if  (scale>0.2){
+          if  (scale>1){
             setScale(scale - 0.1)};
         } else {
             // Scrolling up - zoom in
@@ -42,7 +42,7 @@ export default function ImageViewer(props) {
                     width: '90px',
                     aspectRatio: '1',
                     cursor: 'pointer',
-                    opacity: isModalOpen ? '0.7' : '1',
+                    // opacity: isModalOpen ? '0.7' : '1',
                     ...props.style
                 }}
                 whileHover={{opacity:'0.7'}}

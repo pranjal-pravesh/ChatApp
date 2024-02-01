@@ -1,10 +1,12 @@
 import { Box, Stack } from "@mui/material";
 import { dummyMessages } from "./dummy-messages";
 
-function MessageBox(prop){
-    
-    
-    
+
+
+export function ChatArea(prop){
+
+  function MessageBox(prop){
+       
     return prop.type==='sent'?(
     <Box sx={{background:'#4cb5f9', 
               margin:'5px', 
@@ -35,8 +37,6 @@ function MessageBox(prop){
     </Box>
 
 }
-
-export function ChatArea(prop){
     return(
     <Stack sx={{height:'calc(100svh - 120px)', background:prop.theme==='dark'?'#2f2f2f':'rgb(238, 238, 238)',
                 padding:' 15px 30px', boxSizing:'border-box', overflow:'auto', flexDirection:'column-reverse',
@@ -56,7 +56,8 @@ export function ChatArea(prop){
                   '&::-webkit-scrollbar-thumb:hover': {
                     border: 0,
                   },
-                }} gap={3}>
+                }} gap={3}
+                >
 
         {dummyMessages.map((item, index)=>{
             return <MessageBox message={item.message} key={index} type={item.type}/>

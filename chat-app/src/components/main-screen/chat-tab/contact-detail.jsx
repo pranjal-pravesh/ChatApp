@@ -5,6 +5,7 @@ import {  Bell, CaretLeft, CaretRight, Phone, Star, VideoCamera, X } from "@phos
 import ImageViewer from "../../custom-components/image viewer";
 import { useState } from "react";
 
+
 export default function ContactDetail(){
 
     const [currentWindow, setCurrentWindow] = useState('basicDetail')
@@ -44,7 +45,7 @@ export default function ContactDetail(){
 
                 
 
-                <Stack sx={{alignItems:'center',}}>
+                <Stack sx={{alignItems:'center', marginTop:'30px'}}>
                     <Avatar sx={{width:'150px', height:'150px'}}
                             src='https://media.licdn.com/dms/image/D4E03AQHBqWeBZgzLOQ/profile-displayphoto-shrink_800_800/0/1682102966918?e=2147483647&v=beta&t=3h218jhABSX_wWq-yVt8-yCUjO12cSvq-srN_tkYPg8'/>
                 
@@ -166,7 +167,7 @@ export default function ContactDetail(){
                     </Tabs>
                 </ThemeProvider>
 
-                {value===0?
+                {value===0? //Tab1
                     
                     <div style={{width:'100%',
                                 marginTop:'30px',
