@@ -1,6 +1,6 @@
 import { Avatar, Button, IconButton, Stack, Switch, Tab, Tabs, ThemeProvider, Typography, createTheme, styled } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleContactDetail } from "../../../features/contact-detail";
+import { toggleContactDetailOff } from "../../../features/contact-detail";
 import {  Bell, CaretLeft, CaretRight, Phone, Star, VideoCamera, X } from "@phosphor-icons/react";
 import ImageViewer from "../../custom-components/image viewer";
 import { useState } from "react";
@@ -38,7 +38,7 @@ export default function ContactDetail(){
                     
                 
                 
-                    <IconButton onClick={()=>dispatch(toggleContactDetail())} 
+                    <IconButton onClick={()=>dispatch(toggleContactDetailOff())} 
                         sx={{color:theme==='dark'?'white':'black', position:'absolute', top:'7px', right:'7px'}}>
                         <X size={20} weight="light" />
                     </IconButton>
@@ -150,7 +150,7 @@ export default function ContactDetail(){
                         <CaretLeft size={20} weight="light" />
                 </IconButton>
 
-                <IconButton onClick={()=>{dispatch(toggleContactDetail())
+                <IconButton onClick={()=>{dispatch(toggleContactDetailOff())
                                             setCurrentWindow('basicDetail')}} 
                         sx={{color:theme==='dark'?'white':'black', position:'absolute', top:'7px', right:'7px'}}>
                         <X size={20} weight="light" />

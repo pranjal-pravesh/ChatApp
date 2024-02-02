@@ -1,5 +1,4 @@
 import { Avatar, Box, IconButton, Stack, Typography } from "@mui/material";
-import { dark } from "@mui/material/styles/createPalette";
 import { ChatCircleDots, Phone, VideoCamera } from "@phosphor-icons/react";
 
 export default function CallDetails(prop){
@@ -24,6 +23,11 @@ export default function CallDetails(prop){
                                         lineHeight:'18px',
                                         color:prop.theme==='dark'?'white':'black'}}>
                                 Pranjal Pravesh
+                            </p>
+                            <p style={{fontSize:'12px', 
+                                        lineHeight:'16px',
+                                        color:'gray'}}>
+                                @pranjal.pravesh
                             </p>
 
                     </Stack>

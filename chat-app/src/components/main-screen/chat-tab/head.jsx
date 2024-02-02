@@ -1,6 +1,6 @@
 import { Avatar, Stack } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { toggleContactDetail } from "../../../features/contact-detail";
+import { toggleContactDetailOn } from "../../../features/contact-detail";
 
 export function Head(prop){
     const dispatch = useDispatch();
@@ -8,7 +8,7 @@ export function Head(prop){
         <Stack sx={{width:'100%', height:'60px', background:prop.theme==='dark'?'#232323':'white', 
                     color:'white', alignItems:'center', padding:'0 20px', transition:'background-color 200ms'}} direction='row'>
                         
-            <Stack direction='row' sx={{alignItems:'center', userSelect:'none', cursor:'pointer'}} onClick={()=> dispatch(toggleContactDetail())}>
+            <Stack direction='row' sx={{alignItems:'center', userSelect:'none', cursor:'pointer'}} onClick={()=> dispatch(toggleContactDetailOn())}>
                 
                 <Avatar sx={{width:'42px', height:'42px', marginRight:'10px'}}
                         src='https://media.licdn.com/dms/image/D4E03AQHBqWeBZgzLOQ/profile-displayphoto-shrink_800_800/0/1682102966918?e=2147483647&v=beta&t=3h218jhABSX_wWq-yVt8-yCUjO12cSvq-srN_tkYPg8'/>

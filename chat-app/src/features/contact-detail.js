@@ -4,11 +4,15 @@ const contactDetailSlice = createSlice({
     name:'contactDetail',
     initialState:false,
     reducers:{
-        toggleContactDetail: (state)=>{
-            return state===true?false:true;
+        toggleContactDetailOn: (state)=>{
+            return true;
+        },
+
+        toggleContactDetailOff: (state)=>{
+            return false;
         }
     }
 });
 
-export const {toggleContactDetail} = contactDetailSlice.actions;
+export const {toggleContactDetailOn, toggleContactDetailOff} = contactDetailSlice.actions;
 export default contactDetailSlice.reducer;

@@ -40,16 +40,15 @@
 }
 
 
-
-.customScrollbar::-webkit-scrollbar{
+::-webkit-scrollbar{
     width: 6px;
 }
 
-.customScrollbar::-webkit-scrollbar-track{
+::-webkit-scrollbar-track{
     background-color: transparent;
 }
 
-.customScrollbar::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb{
     background: #ababab;
     border-radius: 10px;
     border: 2px solid transparent;
@@ -57,6 +56,6 @@
     
 }
 
-.customScrollbar::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     border: 0;
 }
