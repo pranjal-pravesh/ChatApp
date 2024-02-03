@@ -1,27 +1,68 @@
-import { Box, Stack } from "@mui/material";
+import { Box, IconButton, Stack } from "@mui/material";
 import { dummyMessages } from "./dummy-messages";
-
+import { useRef, useState } from "react";
+import { ContextMenu } from 'primereact/contextmenu';
+import { ArrowBendUpLeft, ArrowBendUpRight, DotsThreeVertical, Trash } from "@phosphor-icons/react";
 
 
 export function ChatArea(prop){
 
+
+  const cm = useRef(null);
+    const contextMenuItems =  [
+      {
+          label: 'Copy',
+          icon: 'pi pi-copy'
+          
+      },
+      {
+          label: 'Reply',
+          icon: <ArrowBendUpLeft style={{color:'white', marginRight:'8px'}} size={16} weight="bold" />,
+          command: () => {}
+      },
+
+      {
+          label: 'Forward',
+          icon: <ArrowBendUpRight style={{color:'white', marginRight:'8px'}} size={16} weight="bold" />
+      },
+      {
+        label: 'Detele',
+        icon: <Trash style={{color:'white', marginRight:'8px'}} size={16} weight="bold" />
+    },
+    ];
+
   function MessageBox(prop){
+
+    const [isHovered, setIsHovered] = useState(false)
        
     return prop.type==='sent'?(
-    <Box sx={{background:'#4cb5f9', 
-              margin:'5px', 
-              color:'white',
-              width:'fit-content',
-              maxWidth:'60%',
-              fontSize:'14px',
-              padding:'6px 14px',
-              borderRadius:'12px',
-              alignSelf:'end',
-              whiteSpace: 'pre-line'
-              }}>
-        {prop.message}
-    </Box>
+
+    <Stack sx={{justifyContent:'end',}} direction={'row'} onMouseEnter={()=>setIsHovered(true)} onMouseLeave={()=>setIsHovered(false)}>
+
+      {isHovered&&
+      <IconButton sx={{marginLeft:'auto'}} 
+                  onClick={(e) => cm.current.show(e)}>
+        <DotsThreeVertical size={20} style={{width:'30px'}} weight="bold"/></IconButton>
+      }
+
+      <Box sx={{background:'#4cb5f9', 
+                margin:'5px', 
+                color:'white',
+                width:'fit-content',
+                maxWidth:'60%',
+                fontSize:'14px',
+                padding:'6px 14px',
+                borderRadius:'12px',
+                
+                whiteSpace: 'pre-line'
+                }}
+                onContextMenu={(e) => cm.current.show(e)}>
+          {prop.message}
+      </Box>
+    </Stack>
     ):
+
+    <Stack direction={'row'} sx={{justifyContent:'start',}} onMouseEnter={()=>setIsHovered(true)} onMouseLeave={()=>setIsHovered(false)}>
     <Box sx={{background:'grey',  
               margin:'5px', 
               color:'white',
@@ -30,35 +71,27 @@ export function ChatArea(prop){
               fontSize:'14px',
               padding:'6px 14px',
               borderRadius:'12px',
-              alignSelf:'start',
               whiteSpace: 'pre-line'
-              }}>
+              }}
+              onContextMenu={(e) => cm.current.show(e)}>
         {prop.message}
     </Box>
+
+    {isHovered&&
+    <IconButton sx={{marginRight:'auto'}} 
+      onClick={(e) => cm.current.show(e)}><DotsThreeVertical size={20} style={{width:'30px'}} weight="bold"/></IconButton>
+    }
+
+    </Stack>
 
 }
     return(
     <Stack sx={{height:'calc(100svh - 120px)', background:prop.theme==='dark'?'#2f2f2f':'rgb(238, 238, 238)',
                 padding:' 15px 30px', boxSizing:'border-box', overflow:'auto', flexDirection:'column-reverse',
                 transition:'background 200ms',
-                '&::-webkit-scrollbar': {
-                    width: 6,
-                  },
-                  '&::-webkit-scrollbar-track': {
-                    backgroundColor: 'transparent',
-                  },
-                  '&::-webkit-scrollbar-thumb': {
-                    background: '#ababab',
-                    borderRadius: 10,
-                    border: '2px solid transparent',
-                    backgroundClip: 'padding-box',
-                  },
-                  '&::-webkit-scrollbar-thumb:hover': {
-                    border: 0,
-                  },
-                }} gap={3}
+                }} gap={1}
                 >
-
+        <ContextMenu model={contextMenuItems} ref={cm} />
         {dummyMessages.map((item, index)=>{
             return <MessageBox message={item.message} key={index} type={item.type}/>
         })}

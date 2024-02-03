@@ -5,6 +5,8 @@ import ChatTab from "./main-screen/chat-tab/chatTab"
 import CallTab from "./main-screen/calls-tab/callTab"
 import FriendsTab from "./main-screen/friends-tab/friends-tab"
 import Settings from "./main-screen/settings-tab/settings"
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+import 'primeicons/primeicons.css';
 
 export default function App() {
   return (

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap');
 
+
 .threadsContainer{
     width: 100%;
     height: calc(100vh - 103px);
@@ -59,3 +60,33 @@
 ::-webkit-scrollbar-thumb:hover {
     border: 0;
 }
+
+
+.p-contextmenu{
+    background: black !important;
+}
+
+.p-contextmenu div{
+    background-color: black !important;
+}
+
+.p-contextmenu div:hover{
+    background-color: #72727233 !important;
+}
+
+.p-menuitem-text{
+    font-size: 14px;
+    color: white;
+}
+
+.p-submenu-list{
+    background-color: black !important;
+    border-radius: 0 !important;
+    
+}
+.p-menuitem-icon,
+.p-submenu-icon{
+
+    color: white;
+}
+

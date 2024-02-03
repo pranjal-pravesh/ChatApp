@@ -1,5 +1,20 @@
 export const dummyMessages = [
     {
+      message: `All are recieved`,
+      time: `15:11`,
+      type: `received`,
+    },
+    {
+      message: `Multiple messages for testing`,
+      time: `15:11`,
+      type: `received`,
+    },
+    {
+      message: `Will be waiting`,
+      time: `15:11`,
+      type: `received`,
+    },
+    {
       message: `Perfect! I’m in. Can’t wait!`,
       time: `15:11`,
       type: `received`,
@@ -63,6 +78,7 @@ export const dummyMessages = [
       time: `15:00`,
       type: `sent`,
     },
+    
     // ... Add more messages as needed
   ];
   
