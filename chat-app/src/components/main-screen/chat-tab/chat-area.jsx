@@ -2,7 +2,7 @@ import { Box, IconButton, Stack } from "@mui/material";
 import { dummyMessages } from "./dummy-messages";
 import { useRef, useState } from "react";
 import { ContextMenu } from 'primereact/contextmenu';
-import { ArrowBendUpLeft, ArrowBendUpRight, DotsThreeVertical, Trash } from "@phosphor-icons/react";
+import { ArrowBendUpLeft, ArrowBendUpRight, DotsThreeOutlineVertical, DotsThreeVertical, Trash } from "@phosphor-icons/react";
 
 
 export function ChatArea(prop){
@@ -40,12 +40,12 @@ export function ChatArea(prop){
     <Stack sx={{justifyContent:'end',}} direction={'row'} onMouseEnter={()=>setIsHovered(true)} onMouseLeave={()=>setIsHovered(false)}>
 
       {isHovered&&
-      <IconButton sx={{marginLeft:'auto'}} 
+      <IconButton sx={{marginLeft:'auto', color:'grey'}} 
                   onClick={(e) => cm.current.show(e)}>
-        <DotsThreeVertical size={20} style={{width:'30px'}} weight="bold"/></IconButton>
+        <DotsThreeOutlineVertical size={18} style={{width:'30px'}} weight="fill"/></IconButton>
       }
 
-      <Box sx={{background:'#4cb5f9', 
+      <div className="message" style={{background:'#4cb5f9', 
                 margin:'5px', 
                 color:'white',
                 width:'fit-content',
@@ -58,12 +58,12 @@ export function ChatArea(prop){
                 }}
                 onContextMenu={(e) => cm.current.show(e)}>
           {prop.message}
-      </Box>
+      </div>
     </Stack>
     ):
 
     <Stack direction={'row'} sx={{justifyContent:'start',}} onMouseEnter={()=>setIsHovered(true)} onMouseLeave={()=>setIsHovered(false)}>
-    <Box sx={{background:'grey',  
+    <div className="message" style={{background:'grey',  
               margin:'5px', 
               color:'white',
               width:'fit-content',
@@ -75,11 +75,11 @@ export function ChatArea(prop){
               }}
               onContextMenu={(e) => cm.current.show(e)}>
         {prop.message}
-    </Box>
+    </div>
 
     {isHovered&&
-    <IconButton sx={{marginRight:'auto'}} 
-      onClick={(e) => cm.current.show(e)}><DotsThreeVertical size={20} style={{width:'30px'}} weight="bold"/></IconButton>
+    <IconButton sx={{marginRight:'auto', color:'grey'}} 
+      onClick={(e) => cm.current.show(e)}><DotsThreeOutlineVertical size={18} style={{width:'30px'}} weight="fill"/></IconButton>
     }
 
     </Stack>

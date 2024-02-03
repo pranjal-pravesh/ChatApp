@@ -90,3 +90,6 @@
     color: white;
 }
 
+.message:active{
+    opacity: 0.7;
+}
