@@ -2,12 +2,14 @@ import React from 'react'
 import { Box,Stack, Typography} from "@mui/material";
 import { useState } from "react";
 import { Lock, PaintRoller, Password, User } from "@phosphor-icons/react";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import {changeSettingsSection} from '../../../features/settings-section'
 
-const Settings = () => {
+const SettingsThreads = () => {
 
   var theme = useSelector(state => state.theme);
-  const [selectedThread, setSelectedThread] = useState('')
+  const dispatch = useDispatch();
+  const selectedThread = useSelector(state=>state.settingsSection)
 
   const icons = {
     privacy: ()=><Lock size={20} style={{color:theme==='light'?'black':'white', marginRight:'10px'}}/>,
@@ -16,7 +18,12 @@ const Settings = () => {
     password: ()=><Password size={20} style={{color:theme==='light'?'black':'white', marginRight:'10px'}}/>
   }
 
-  function SettingTab(prop){
+  function SettingThreads(prop){
+
+    //for handling click
+    function handleClick(){
+        
+    }
 
     //for handling hover
     const [isHovered, setIsHovered] = useState(false);
@@ -33,10 +40,10 @@ const Settings = () => {
     //For handling bgcolor when hovered or selected
     function threadBGcolor(){
 
-        if (selectedThread===prop.name){
+        if (selectedThread==prop.id){
             return '#6b686859'
         }
-        if (selectedThread!==prop.name && isHovered){
+        if (selectedThread!==prop.id && isHovered){
             return '#72727221'
         }
         else{
@@ -65,7 +72,8 @@ const Settings = () => {
                     direction='row'
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    onClick={()=>setSelectedThread(prop.name)}>
+                    onClick={()=>dispatch(changeSettingsSection(prop.id))}
+                    >
             
             <Stack sx={{height:'50px', fontSize:'16px', width:'75%', marginLeft:'5%', fontFamily:'Roboto', alignItems:'center'}}>
 
@@ -88,10 +96,10 @@ const Settings = () => {
 
         
         <div className="threadsContainer" style={{marginTop:'30px'}}>
-            <SettingTab name='Profile' icon={icons.profile}></SettingTab>
-            <SettingTab name='Privacy' icon={icons.privacy}></SettingTab>
-            <SettingTab name='Password' icon={icons.privacy}></SettingTab>
-            <SettingTab name='Theme & Accent' icon={icons.themeIcon}></SettingTab>
+            <SettingThreads id='1' name='Profile' icon={icons.profile}></SettingThreads>
+            <SettingThreads id='2' name='Privacy' icon={icons.privacy}></SettingThreads>
+            <SettingThreads id='3' name='Password' icon={icons.privacy}></SettingThreads>
+            <SettingThreads id='4' name='Theme & Accent' icon={icons.themeIcon}></SettingThreads>
         </div>
         
 
@@ -101,4 +109,4 @@ const Settings = () => {
     )
 }
 
-export default Settings
+export default SettingsThreads
