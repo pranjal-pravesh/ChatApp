@@ -19,9 +19,9 @@ const SettingsTab = () => {
           current==1?
           <ProfileSection/>
           :
-          current==2?
-          <PrivacySection/>
-          :
+          // current==2?
+          // <PrivacySection/>
+          // :
           current==3?
           <PasswordSection/>
           :

@@ -3,9 +3,12 @@ import { dummyMessages } from "./dummy-messages";
 import { useRef, useState } from "react";
 import { ContextMenu } from 'primereact/contextmenu';
 import { ArrowBendUpLeft, ArrowBendUpRight, DotsThreeOutlineVertical, DotsThreeVertical, Trash } from "@phosphor-icons/react";
+import { useSelector } from "react-redux";
 
 
 export function ChatArea(prop){
+
+  const accentColor = useSelector((state) => state.accent);
 
 
   const cm = useRef(null);
@@ -45,7 +48,7 @@ export function ChatArea(prop){
         <DotsThreeOutlineVertical size={18} style={{width:'30px'}} weight="fill"/></IconButton>
       }
 
-      <div className="message" style={{background:'#4cb5f9', 
+      <div className="message" style={{background:accentColor, 
                 margin:'5px', 
                 color:'white',
                 width:'fit-content',

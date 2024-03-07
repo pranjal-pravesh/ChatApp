@@ -97,7 +97,7 @@ const SettingsThreads = () => {
         
         <div className="threadsContainer" style={{marginTop:'30px'}}>
             <SettingThreads id='1' name='Profile' icon={icons.profile}></SettingThreads>
-            <SettingThreads id='2' name='Privacy' icon={icons.privacy}></SettingThreads>
+            {/* <SettingThreads id='2' name='Privacy' icon={icons.privacy}></SettingThreads> */}
             <SettingThreads id='3' name='Password' icon={icons.privacy}></SettingThreads>
             <SettingThreads id='4' name='Theme & Accent' icon={icons.themeIcon}></SettingThreads>
         </div>

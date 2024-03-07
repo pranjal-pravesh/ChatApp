@@ -8,7 +8,8 @@ import { useState } from "react";
 
 export default function ContactDetail(){
 
-    const [currentWindow, setCurrentWindow] = useState('basicDetail')
+    const [currentWindow, setCurrentWindow] = useState('basicDetail');
+    const accentColor = useSelector((state) => state.accent);
     
     const dispatch =  useDispatch();
     const theme = useSelector(state=> state.theme);
@@ -121,9 +122,9 @@ export default function ContactDetail(){
                 contrastText: '#fff', // Text color that contrasts well with the main color
             },
                 secondary: {
-                    main: '#4cb5f9', // Your main color
-                    light: '#81d4fa', // Lighter shade of the main color
-                    dark: '#2196f3', // Darker shade of the main color
+                    main: accentColor, // Your main color
+                    light: accentColor, // Lighter shade of the main color
+                    dark: accentColor, // Darker shade of the main color
                     contrastText: '#fff', // Text color that contrasts well with the main color
             }
 

@@ -16,6 +16,7 @@ export function Sidebar(prop){
     const location = useLocation();
     const dispatch = useDispatch()
     var theme = useSelector(state => state.theme);
+    const accentColor = useSelector((state) => state.accent);
     const changeTheme = ()=>dispatch(toggleTheme());
 
     var selected = useSelector(state => state.tab);
@@ -37,7 +38,7 @@ export function Sidebar(prop){
                 //renders first three icons with selecting conditions
                 if (selected===item.name){
                 return (<Link to={item.link} replace='true'>
-                <Box sx={{backgroundColor:'#4cb5f9' , width:'40px', height:'40px', borderRadius:'10px', margin:'24px 0px', transitionDuration:'150ms'}} key={item.index}>
+                <Box sx={{backgroundColor:accentColor , width:'40px', height:'40px', borderRadius:'10px', margin:'24px 0px', transitionDuration:'150ms'}} key={item.index}>
                     <IconButton sx={{color:'white'}} key={item.index} >                    
                             {item.icon}                  
                     </IconButton>
@@ -60,7 +61,7 @@ export function Sidebar(prop){
             {/**renders the gear icon with selecting condition */}
              {(selected==='settings')?(
                 <Link to='/settings' replace='true'>
-                <Box sx={{backgroundColor:'#4cb5f9' , width:'40px', height:'40px', borderRadius:'10px', margin:'24px 0px'}}>
+                <Box sx={{backgroundColor:accentColor , width:'40px', height:'40px', borderRadius:'10px', margin:'24px 0px'}}>
                     <IconButton sx={{color:'white'}}>                    
                         <Gear size={24} weight="light"/>                  
                     </IconButton>
