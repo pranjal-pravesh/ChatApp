@@ -4,6 +4,7 @@ import tabReducer from '../features/tab';
 import contactDetailReducer from '../features/contact-detail';
 import settingsSection from '../features/settings-section';
 import accentReducer from '../features/accent'
+import screenReducer from '../features/screen-width'
 
 const store = configureStore({
   reducer: {
@@ -11,7 +12,9 @@ const store = configureStore({
     tab : tabReducer,
     contactDetail : contactDetailReducer,
     settingsSection : settingsSection,
-    accent: accentReducer
+    accent: accentReducer,
+    screenWidth: screenReducer
+
 
   },
 });

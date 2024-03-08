@@ -1,8 +1,11 @@
-import { Stack, Typography } from "@mui/material";
+import { IconButton, Stack, Typography } from "@mui/material";
+import { CaretLeft } from "@phosphor-icons/react";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { changeSettingsSection } from "../../../features/settings-section";
 
-const PasswordSection = () => {
+const PasswordSection = (prop) => {
+  const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
   const accentColor = useSelector((state) => state.accent);
 
@@ -28,11 +31,26 @@ const PasswordSection = () => {
     <Stack
       sx={{
         flex: "1",
+        padding: "20px",
         background: theme === "dark" ? "#232323" : "white",
         transition: "background-color 200ms",
         alignItems: "center",
+        display: prop.display===1?'flex':'none'
       }}
     >
+      <IconButton
+        sx={{
+          color: theme === "dark" ? "white" : "black",
+          display: prop.screenWidth > 820 ? "none" : null,
+          alignSelf: "start",
+          
+        }}
+        onClick={() => {prop.setDisplay(0)
+          dispatch(changeSettingsSection(0))}}
+      >
+        <CaretLeft size={20} />
+      </IconButton>
+
       <Stack
         sx={{
           width: "50%",

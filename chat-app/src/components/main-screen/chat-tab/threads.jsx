@@ -3,8 +3,9 @@ import { dummyUsers } from "./dummyUsers";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-export function Threads() {
+export function Threads(props) {
   var theme = useSelector((state) => state.theme);
+  const display = props.display;
   const accentColor = useSelector((state) => state.accent);
 
   const [selectedThread, setSelectedThread] = useState("");
@@ -116,7 +117,8 @@ export function Threads() {
         direction="row"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={() => setSelectedThread(prop.id)}
+        onClick={() => {setSelectedThread(prop.id)
+          props.setDisplay(1)}}
       >
         <Avatar sx={{ height: "50px", width: "50px" }} src={prop.profilePic} />
 
@@ -180,6 +182,8 @@ export function Threads() {
         flexShrink: "0",
         backgroundColor: theme === "dark" ? "#282828" : "rgb(251, 251, 251)",
         transition: "background-color 200ms",
+        display:display===0?'flex':'none',
+        flex: props.screenWidth<820 ? 1 : 'none',
       }}
     >
       <Box>

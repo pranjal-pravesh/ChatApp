@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const accentSlice = createSlice({
   name: 'accent',
-  initialState: '#4CB5F9',
+  initialState: '#49AEEF',
   reducers: {
 
     setAccent: (state, action) =>{

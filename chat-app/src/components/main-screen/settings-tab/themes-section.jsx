@@ -1,10 +1,12 @@
-import { Avatar, Stack, Typography } from "@mui/material";
+import { Avatar, IconButton, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../../../features/theme";
 import { setAccent } from "../../../features/accent";
+import { CaretLeft } from "@phosphor-icons/react";
+import { changeSettingsSection } from "../../../features/settings-section";
 
-const ThemesSection = () => {
+const ThemesSection = (prop) => {
 
   const theme = useSelector((state) => state.theme);
   const accentColor = useSelector((state) => state.accent);
@@ -43,9 +45,21 @@ const ThemesSection = () => {
         transition: "background-color 200ms",
         padding: "20px",
         alignItems: "center",
-        
+        display: prop.display===1?'flex':'none'
       }}
     >
+      <IconButton
+        sx={{
+          color: theme === "dark" ? "white" : "black",
+          display: prop.screenWidth > 820 ? "none" : null,
+          alignSelf: "start",
+          
+        }}
+        onClick={() => {prop.setDisplay(0)
+          dispatch(changeSettingsSection(0))}}
+      >
+        <CaretLeft size={20} />
+      </IconButton>
       <Stack
         sx={{
           width: "50%",
@@ -88,6 +102,7 @@ const ThemesSection = () => {
               ...accentIconStyle,
               background: "#49AEEF",
               aspectRatio: accentColor === '#49AEEF' ? "0.7" : "1",
+              cursor:'pointer',
             }}
             onClick={() => {setSelectedAccent(1)
               dispatch(setAccent("#49AEEF"))}}
@@ -97,6 +112,7 @@ const ThemesSection = () => {
               ...accentIconStyle,
               background: "red",
               aspectRatio: accentColor === 'red' ? "0.7" : "1",
+              cursor:'pointer',
             }}
             onClick={() => {setSelectedAccent(2)
               dispatch(setAccent('red'))}}
@@ -106,6 +122,7 @@ const ThemesSection = () => {
               ...accentIconStyle,
               background: "orange",
               aspectRatio: accentColor === 'orange' ? "0.7" : "1",
+              cursor:'pointer',
             }}
             onClick={() => {setSelectedAccent(3)
               dispatch(setAccent('orange'))}}
@@ -115,6 +132,7 @@ const ThemesSection = () => {
               ...accentIconStyle,
               background: "purple",
               aspectRatio: accentColor === 'purple' ? "0.7" : "1",
+              cursor:'pointer',
             }}
             onClick={() => {setSelectedAccent(4)
                             dispatch(setAccent('purple'))}}

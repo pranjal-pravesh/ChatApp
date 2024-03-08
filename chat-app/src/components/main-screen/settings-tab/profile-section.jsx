@@ -1,8 +1,11 @@
-import { Avatar, Stack, Typography } from "@mui/material";
+import { Avatar, IconButton, Stack, Typography } from "@mui/material";
+import { CaretLeft } from "@phosphor-icons/react";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { changeSettingsSection } from "../../../features/settings-section";
 
-const ProfileSection = () => {
+const ProfileSection = (prop) => {
+  const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
   const accentColor = useSelector((state) => state.accent);
   const inputStyle = {
@@ -27,8 +30,22 @@ const ProfileSection = () => {
         transition: "background-color 200ms",
         padding: "20px",
         alignItems: "center",
+        display: prop.display===1?'flex':'none'
       }}
     >
+      <IconButton
+        sx={{
+          color: theme === "dark" ? "white" : "black",
+          display: prop.screenWidth > 820 ? "none" : null,
+          alignSelf: "start",
+          position:'absolute'
+        }}
+        onClick={() => {prop.setDisplay(0)
+          dispatch(changeSettingsSection(0))}}
+        >
+          <CaretLeft size={20} />
+        </IconButton>
+
       <Stack
         sx={{
           alignItems: "center",
@@ -39,6 +56,7 @@ const ProfileSection = () => {
         }}
         // direction={"row"}
       >
+        
         <Avatar
           sx={{ width: "120px", height: "120px", margin: "20px 10px" }}
           src="https://media.licdn.com/dms/image/D4E03AQHBqWeBZgzLOQ/profile-displayphoto-shrink_800_800/0/1682102966918?e=2147483647&v=beta&t=3h218jhABSX_wWq-yVt8-yCUjO12cSvq-srN_tkYPg8"

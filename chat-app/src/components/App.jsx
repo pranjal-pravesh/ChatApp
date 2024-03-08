@@ -7,9 +7,26 @@ import FriendsTab from "./main-screen/friends-tab/friends-tab"
 import SettingsTab from "./main-screen/settings-tab/settings-tab"
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import 'primeicons/primeicons.css';
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
+import { updateScreenWidth } from "../features/screen-width"
 
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const handleResize = () => {
+      dispatch(updateScreenWidth(window.innerWidth));
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [dispatch]);
+
   return (
     <>
     <Routes>
