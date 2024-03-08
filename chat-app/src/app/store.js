@@ -5,6 +5,7 @@ import contactDetailReducer from '../features/contact-detail';
 import settingsSection from '../features/settings-section';
 import accentReducer from '../features/accent'
 import screenReducer from '../features/screen-width'
+import sidebarReducer from '../features/sidebar-visibility';
 
 const store = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ const store = configureStore({
     contactDetail : contactDetailReducer,
     settingsSection : settingsSection,
     accent: accentReducer,
-    screenWidth: screenReducer
+    screenWidth: screenReducer,
+    sidebarVisibility: sidebarReducer,
 
 
   },

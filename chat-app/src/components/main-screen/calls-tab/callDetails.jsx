@@ -43,7 +43,7 @@ export default function CallDetails(prop) {
       </Box>
 
       <Stack
-        direction="row"
+        // direction="row"
         sx={{
           alignItems: "center",
           justifyContent: "space-between",
@@ -53,16 +53,17 @@ export default function CallDetails(prop) {
           borderRadius: "5px",
         }}
       >
-        <Stack direction="row">
+        <Stack >
           <Avatar
-            sx={{ width: "45px", height: "45px", marginRight: "10px" }}
+            sx={{ width: "150px", height: "150px"}}
             src="https://media.licdn.com/dms/image/D4E03AQHBqWeBZgzLOQ/profile-displayphoto-shrink_800_800/0/1682102966918?e=2147483647&v=beta&t=3h218jhABSX_wWq-yVt8-yCUjO12cSvq-srN_tkYPg8"
           />
 
-          <Stack sx={{ justifyContent: "center" }}>
+          <Stack sx={{ alignItems: "center" }}>
             {/*profile things */}
             <p
               style={{
+                marginTop:'10px',
                 fontSize: "15px",
                 lineHeight: "18px",
                 color: prop.theme === "dark" ? "white" : "black",
@@ -76,15 +77,15 @@ export default function CallDetails(prop) {
           </Stack>
         </Stack>
 
-        <Stack direction="row" sx={{ alignItems: "center" }} gap="30px">
+        <Stack direction="row" sx={{ alignItems: "center" }} gap="5%">
           <IconButton sx={{ color: prop.theme === "dark" ? "white" : "black" }}>
-            <ChatCircleDots size={20} weight="light" />
+            <ChatCircleDots size={25} weight="light" />
           </IconButton>
           <IconButton sx={{ color: prop.theme === "dark" ? "white" : "black" }}>
-            <VideoCamera size={20} weight="light" />
+            <VideoCamera size={25} weight="light" />
           </IconButton>
           <IconButton sx={{ color: prop.theme === "dark" ? "white" : "black" }}>
-            <Phone size={20} weight="light" />
+            <Phone size={25} weight="light" />
           </IconButton>
         </Stack>
       </Stack>

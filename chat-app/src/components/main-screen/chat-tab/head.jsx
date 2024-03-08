@@ -2,10 +2,13 @@ import { Avatar, IconButton, Stack } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleContactDetailOn } from "../../../features/contact-detail";
 import { CaretLeft } from "@phosphor-icons/react";
+import { setSidebarVisibility } from "../../../features/sidebar-visibility";
+import { Link } from "react-router-dom";
 
 export function Head(prop) {
   const dispatch = useDispatch();
   const screenWidth = useSelector((state) => state.screenWidth.screenWidth);
+
   return (
     <Stack
       sx={{
@@ -24,11 +27,14 @@ export function Head(prop) {
         sx={{ alignItems: "center", userSelect: "none", cursor: "pointer" }}
         
       >
+        <Link to="/chats">
         <IconButton sx={{ color: prop.theme === "dark" ? "white" : "black",
                           display: screenWidth>820?'none':null }}
-                    onClick={()=>prop.setDisplay(0)}>
+                    onClick={()=>{prop.setDisplay(0)
+                                  dispatch(setSidebarVisibility(true))}}>
           <CaretLeft size={18} />
         </IconButton>
+        </Link>
 
         <Avatar
           sx={{ width: "42px", height: "42px", marginRight: "10px" }}

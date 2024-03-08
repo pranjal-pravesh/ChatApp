@@ -62,8 +62,8 @@ const ThemesSection = (prop) => {
       </IconButton>
       <Stack
         sx={{
-          width: "50%",
-          minWidth: "300px",
+          width: "90%",
+          maxWidth: "500px",
           padding: "10px 15px",
           borderRadius: "10px",
           marginTop: "10px",
@@ -84,8 +84,8 @@ const ThemesSection = (prop) => {
 
       <Stack
         sx={{
-          width: "50%",
-          minWidth: "300px",
+          width: "90%",
+          maxWidth: "500px",
           padding: "10px 15px",
           borderRadius: "10px",
           marginTop: "10px",

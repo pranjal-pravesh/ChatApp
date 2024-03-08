@@ -52,7 +52,7 @@ export function ChatArea(prop){
                 margin:'5px', 
                 color:'white',
                 width:'fit-content',
-                maxWidth:'60%',
+                maxWidth:'70%',
                 fontSize:'14px',
                 padding:'6px 14px',
                 borderRadius:'12px',
@@ -90,7 +90,7 @@ export function ChatArea(prop){
 }
     return(
     <Stack sx={{height:'calc(100svh - 120px)', background:prop.theme==='dark'?'#2f2f2f':'rgb(238, 238, 238)',
-                padding:' 15px 30px', boxSizing:'border-box', overflow:'auto', flexDirection:'column-reverse',
+                padding:' 15px 10px', boxSizing:'border-box', overflow:'auto', flexDirection:'column-reverse',
                 transition:'background 200ms',
                 }} gap={1}
                 >

@@ -53,8 +53,8 @@ const PasswordSection = (prop) => {
 
       <Stack
         sx={{
-          width: "50%",
-          minWidth: "300px",
+          width: "90%",
+          maxWidth: "500px",
           margin: "30px 0",
           padding: "20px",
           borderRadius: "10px",

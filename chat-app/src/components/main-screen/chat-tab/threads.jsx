@@ -1,12 +1,16 @@
 import { Avatar, Box, Stack, Typography } from "@mui/material";
 import { dummyUsers } from "./dummyUsers";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setSidebarVisibility } from "../../../features/sidebar-visibility";
+import { Link } from "react-router-dom"
 
 export function Threads(props) {
   var theme = useSelector((state) => state.theme);
+  const screenWidth = useSelector(state=>state.screenWidth.screenWidth)
   const display = props.display;
   const accentColor = useSelector((state) => state.accent);
+  const dispatch = useDispatch();
 
   const [selectedThread, setSelectedThread] = useState("");
 
@@ -98,6 +102,7 @@ export function Threads(props) {
     }
 
     return (
+      <Link to="#111">
       <Stack
         sx={{
           width: "calc(90% + 6px)",
@@ -117,8 +122,11 @@ export function Threads(props) {
         direction="row"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={() => {setSelectedThread(prop.id)
-          props.setDisplay(1)}}
+        onClick={() => {
+          setSelectedThread(prop.id);
+          props.setDisplay(1);
+          if (screenWidth<820){dispatch(setSidebarVisibility(false))};
+        }}
       >
         <Avatar sx={{ height: "50px", width: "50px" }} src={prop.profilePic} />
 
@@ -171,6 +179,7 @@ export function Threads(props) {
           </Stack>
         </Stack>
       </Stack>
+      </Link>
     );
   }
 
@@ -182,8 +191,8 @@ export function Threads(props) {
         flexShrink: "0",
         backgroundColor: theme === "dark" ? "#282828" : "rgb(251, 251, 251)",
         transition: "background-color 200ms",
-        display:display===0?'flex':'none',
-        flex: props.screenWidth<820 ? 1 : 'none',
+        display: display === 0 ? "flex" : "none",
+        flex: props.screenWidth < 820 ? 1 : "none",
       }}
     >
       <Box>

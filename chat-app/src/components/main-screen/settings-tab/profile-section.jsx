@@ -50,7 +50,7 @@ const ProfileSection = (prop) => {
         sx={{
           alignItems: "center",
           width: "50%",
-          minWidth: "300px",
+          minWidth: "200px",
           padding: "20px 15px",
           borderRadius: "10px",
         }}
@@ -77,8 +77,8 @@ const ProfileSection = (prop) => {
       </Stack>
 
       <Stack sx={{
-          width: "50%",
-          minWidth: "300px",
+          width: "90%",
+          maxWidth: "500px",
           padding: "10px 15px",
           borderRadius: "10px",
           marginTop:'10px'
@@ -89,8 +89,8 @@ const ProfileSection = (prop) => {
       </Stack>
 
       <Stack sx={{
-          width: "50%",
-          minWidth: "300px",
+          width: "90%",
+          maxWidth: "500px",
           padding: "10px 15px",
           borderRadius: "10px",
           marginTop:'10px'
@@ -101,8 +101,8 @@ const ProfileSection = (prop) => {
       </Stack>
 
       <Stack sx={{
-          width: "50%",
-          minWidth: "300px",
+          width: "90%",
+          maxWidth: "500px",
           padding: "10px 15px",
           borderRadius: "10px",
           marginTop:'10px'
