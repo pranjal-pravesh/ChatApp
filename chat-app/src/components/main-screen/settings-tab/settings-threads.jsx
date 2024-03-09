@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Lock, PaintRoller, Password, User } from "@phosphor-icons/react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSettingsSection } from "../../../features/settings-section";
+import { Link } from "react-router-dom";
 
 const SettingsThreads = (props) => {
   var theme = useSelector((state) => state.theme);
@@ -78,6 +79,7 @@ const SettingsThreads = (props) => {
     }
 
     return (
+      <Link to={prop.link}>
       <Stack
         sx={{
           width: "calc(90% + 6px)",
@@ -122,6 +124,7 @@ const SettingsThreads = (props) => {
           </Stack>
         </Stack>
       </Stack>
+      </Link>
     );
   }
   return (
@@ -154,17 +157,20 @@ const SettingsThreads = (props) => {
           id="1"
           name="Profile"
           icon={icons.profile}
+          link={'#profile'}
         ></SettingThreads>
         {/* <SettingThreads id='2' name='Privacy' icon={icons.privacy}></SettingThreads> */}
         <SettingThreads
           id="3"
           name="Password"
           icon={icons.privacy}
+          link={'#password'}
         ></SettingThreads>
         <SettingThreads
           id="4"
           name="Theme & Accent"
           icon={icons.themeIcon}
+          link={'#themes'}
         ></SettingThreads>
       </div>
     </Stack>

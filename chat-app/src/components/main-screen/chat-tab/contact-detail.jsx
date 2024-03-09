@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleContactDetailOff } from "../../../features/contact-detail";
 import {  Bell, CaretLeft, CaretRight, Phone, Star, VideoCamera, X } from "@phosphor-icons/react";
 import ImageViewer from "../../custom-components/image viewer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function ContactDetail(){
@@ -13,6 +13,7 @@ export default function ContactDetail(){
     
     const dispatch =  useDispatch();
     const theme = useSelector(state=> state.theme);
+    const screenWidth = useSelector((state) => state.screenWidth.screenWidth);
     var isVisible = useSelector(state => state.contactDetail);
 
     const StyledSwitch = styled(Switch)(() => ({
@@ -27,13 +28,15 @@ export default function ContactDetail(){
         
             <div style={{ display:isVisible?"flex":'none',
                         flexDirection:'column',
-                        width:'360px', 
+                        width:screenWidth<820?'100vw':'360px', 
                         height:'100svh', 
                         background: theme==="light"?'rgb(249 249 249)':"black",
                         transition:'background width 200ms', 
                         padding:'15px 20px',   
                         overflow:'auto',
                         flexShrink:'0',
+                        position:'absolute',
+                        right:'0'
                         }}
                         className="customScrollbar">
                     
@@ -135,14 +138,15 @@ export default function ContactDetail(){
         return(
             <div style={{ display:isVisible?"flex":'none',
                         flexDirection:'column',
-                        width:'360px', 
+                        width: screenWidth<820?'100vw':'360px', 
                         height:'100svh', 
                         background: theme==="light"?'rgb(249 249 249)':"black",
                         transition:'background width 200ms', 
                         padding:'15px 20px',   
                         overflow:'auto',
                         flexShrink:'0',
-                        position:'relative'
+                        position:'absolute',
+                        right:'0'
                         }}
                         className="customScrollbar">
 

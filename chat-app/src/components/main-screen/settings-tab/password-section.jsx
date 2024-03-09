@@ -3,6 +3,7 @@ import { CaretLeft } from "@phosphor-icons/react";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSettingsSection } from "../../../features/settings-section";
+import { Link } from "react-router-dom";
 
 const PasswordSection = (prop) => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const PasswordSection = (prop) => {
         display: prop.display===1?'flex':'none'
       }}
     >
+      
       <IconButton
         sx={{
           color: theme === "dark" ? "white" : "black",
@@ -48,14 +50,16 @@ const PasswordSection = (prop) => {
         onClick={() => {prop.setDisplay(0)
           dispatch(changeSettingsSection(0))}}
       >
+        <Link to='/settings'>
         <CaretLeft size={20} />
+        </Link>
       </IconButton>
 
       <Stack
         sx={{
           width: "90%",
           maxWidth: "500px",
-          margin: "30px 0",
+          margin: "20px 0",
           padding: "20px",
           borderRadius: "10px",
         }}

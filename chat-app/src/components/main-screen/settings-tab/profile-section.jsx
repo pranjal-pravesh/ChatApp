@@ -3,6 +3,7 @@ import { CaretLeft } from "@phosphor-icons/react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSettingsSection } from "../../../features/settings-section";
+import { Link } from "react-router-dom";
 
 const ProfileSection = (prop) => {
   const dispatch = useDispatch();
@@ -43,7 +44,9 @@ const ProfileSection = (prop) => {
         onClick={() => {prop.setDisplay(0)
           dispatch(changeSettingsSection(0))}}
         >
-          <CaretLeft size={20} />
+          <Link to='/settings'>
+            <CaretLeft size={20} />
+          </Link>
         </IconButton>
 
       <Stack

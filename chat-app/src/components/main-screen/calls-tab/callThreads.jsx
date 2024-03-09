@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { calls } from "./dummy-call-records";
 import { PhoneIncoming, PhoneOutgoing, PhoneX } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 
 export function CallThreads(props) {
   const theme = useSelector((state) => state.theme);
@@ -99,6 +100,7 @@ export function CallThreads(props) {
     }
 
     return (
+      <Link to='#28193'>
       <Stack
         sx={{
           width: "calc(90% + 6px)",
@@ -171,6 +173,7 @@ export function CallThreads(props) {
           </Stack>
         </Stack>
       </Stack>
+      </Link>
     );
   }
 

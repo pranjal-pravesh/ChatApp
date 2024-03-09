@@ -5,6 +5,7 @@ import { setTheme } from "../../../features/theme";
 import { setAccent } from "../../../features/accent";
 import { CaretLeft } from "@phosphor-icons/react";
 import { changeSettingsSection } from "../../../features/settings-section";
+import { Link } from "react-router-dom";
 
 const ThemesSection = (prop) => {
 
@@ -58,7 +59,8 @@ const ThemesSection = (prop) => {
         onClick={() => {prop.setDisplay(0)
           dispatch(changeSettingsSection(0))}}
       >
-        <CaretLeft size={20} />
+        <Link to='/settings'>
+        <CaretLeft size={20} /></Link>
       </IconButton>
       <Stack
         sx={{

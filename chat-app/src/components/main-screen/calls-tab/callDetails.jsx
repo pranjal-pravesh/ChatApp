@@ -5,6 +5,7 @@ import {
   Phone,
   VideoCamera,
 } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 
 export default function CallDetails(prop) {
   const display = prop.display;
@@ -32,7 +33,8 @@ export default function CallDetails(prop) {
         <IconButton sx={{ color: prop.theme === "dark" ? "white" : "black", 
                           display: prop.screenWidth>820?'none':null}}
                     onClick={()=>prop.setDisplay(0)}>
-          <CaretLeft size={18} />
+          <Link to='/calls'>
+          <CaretLeft size={18} /></Link>
         </IconButton>
         <Typography
           variant="h5"
