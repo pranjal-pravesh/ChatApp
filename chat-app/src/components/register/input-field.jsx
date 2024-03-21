@@ -43,7 +43,8 @@ export default function Input(props) {
   return (
       <CssTextField fullWidth 
                     label={props.label} 
-                    size='small' 
+                    size='small'
+                    type={props.type} 
                     value={props.value}
                     onChange={e=> props.setValue(e.target.value)}/>
   );
